@@ -1,0 +1,63 @@
+Ezeanwe chigozie godwin cohort7 second assignment
+
+Overview
+
+Project: Simple CRUD REST API for products and users implemented with Node.js and MongoDB.
+
+Purpose: Provide basic product management with user authentication, API-key protection, and error handling. Built as a learning / small demo project.
+
+User authentication: Signup and login endpoints with JWTs.
+
+Product CRUD: Create, read, update, delete product resources.
+
+API key: Lightweight API-key middleware for additional request validation.
+
+Error handling: Centralized error handler to standardize responses.
+
+Tech Stack
+
+Runtime: Node.js
+Web framework: Express
+Database: MongoDB (mongoose)
+Other libs: morgan, dotenv, bcrypt, jsonwebtoken,
+
+Project Structure
+
+App.js: Application entry point
+
+middleware, routes, and error handling.
+
+package.json: npm manifest and scripts.
+
+DataBase.js: MongoDB connection setup.
+
+Router.js: Main route registrations.
+
+Controllers
+Auth/Signup.js, Auth/Login.js: Authentication handlers.
+
+Products/: CreateProduct.js, ReadProduct.js, UpdateProduct.js, DeleteProduct.js.
+
+Model:
+UserSchema.js: User model.
+ProductUser.js: Product model.
+
+Middleware:
+Api-key.js: API key check.
+JWT-key.js, JWT-Token.js: JWT helpers/middleware.
+
+ErrorHandler.js: Centralized error processing.
+
+Dificulty encounterd
+
+1. Mongoose Schema validation: This was my first time using mongoose, and I encountered a few issues with schema validation. I had to spend some time understanding how to properly set up and use mongoose schemas
+
+2. Database creation: as i had only used mongodb before without schemas it was hard for me to understand how to specify with collection i want my data to go to.
+
+3. Mongoose connection: I had to spend some time understanding how to properly set up and use mongoose connection.
+
+4. JWT token: I had made you of jwt token before but never did it as a reusable middleware and i am still yet to understand how to refresh my jwt token to avoid hackers and to keep the users save
+
+5. i had to test the project the front end way cause i still have a hard time understanding thunderclient or postman
+
+i cant call all the issues little cause i did spend a lot learning and fixing them i had the joy of watching my project work and i am happy with the result
