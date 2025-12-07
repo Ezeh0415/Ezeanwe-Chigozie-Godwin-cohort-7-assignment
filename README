@@ -10,7 +10,7 @@ User authentication: Signup and login endpoints with JWTs.
 
 Product CRUD: Create, read, update, delete product resources.
 
-API key: Lightweight API-key middleware for additional request validation.
+API key: Lightweight API-key middleware for additional request validation.  {'cohort7-crud-setup-accessment'}
 
 Error handling: Centralized error handler to standardize responses.
 
