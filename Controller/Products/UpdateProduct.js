@@ -13,13 +13,14 @@ const SingleProductUpdate = async (req, res) => {
   }
 
   try {
-    const updated = await Product.findOneAndUpdate(
-      { _id: "6935a40d3deed1d176618c8e" },
-      { $set: { productQuantity: productQuantity } },
-      { new: true }
-    );
+    const product = await Product.findOne({ _id: productId });
 
-    console.log(updated);
+    if (!product) {
+      return handleError(res, 404, "Product not found");
+    }
+
+    product.productQuantity = productQuantity;
+    await product.save();
 
     res.status(200).json({ message: "Product updated successfully" });
   } catch (err) {

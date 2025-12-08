@@ -4,7 +4,7 @@ const { handleError } = require("../../utility/ErrorHandler");
 
 const DeleteSingleProduct = async (req, res) => {
   const { id } = req.params;
-  if (objectId.isValid(id)) {
+  if (!objectId.isValid(id)) {
     return handleError(res, 400, "Invalid Id");
   }
   try {
