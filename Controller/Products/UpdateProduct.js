@@ -19,8 +19,8 @@ const SingleProductUpdate = async (req, res) => {
       return handleError(res, 404, "Product not found");
     }
 
-    Product.productQuantity = productQuantity;
-    await Product.save();
+    product.productQuantity = productQuantity;
+    await product.save();
 
     res.status(200).json({ message: "Product updated successfully" });
   } catch (err) {
