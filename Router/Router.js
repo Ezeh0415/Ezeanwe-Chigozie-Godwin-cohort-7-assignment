@@ -4,14 +4,20 @@ const Require_Api_key = require("../Middleware/Api-key");
 const Require_jwt_key = require("../Middleware/JWT-key");
 const AuthSignup = require("../Controller/Auth/Signup");
 const AuthLogin = require("../Controller/Auth/Login");
+const AdminSet = require("../Controller/Auth/Admin");
 const { CreateItem } = require("../Controller/Products/CreateProduct");
 const GetProduct = require("../Controller/Products/ReadProduct");
 const UpdateProduct = require("../Controller/Products/UpdateProduct");
 const DeleteProduct = require("../Controller/Products/DeleteProduct");
+const ADMIN = require("../Controller/Admin/GetAllUser");
 
 // Auth
 router.post("/Signup", Require_Api_key, AuthSignup.Signup);
 router.post("/Login", Require_Api_key, AuthLogin.Login);
+// auth update
+router.put("/Admin/:id", Require_Api_key, Require_jwt_key, AdminSet.Admin);
+
+router.get("/AllUsers", Require_Api_key, Require_jwt_key, ADMIN.AllUsers);
 
 // Product post
 router.post("/AddProduct", Require_Api_key, Require_jwt_key, CreateItem);
@@ -45,4 +51,5 @@ router.delete(
   Require_jwt_key,
   DeleteProduct.DeleteSingleProduct
 );
+
 module.exports = router;

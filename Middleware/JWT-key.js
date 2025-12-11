@@ -1,8 +1,7 @@
 const jwt = require("jsonwebtoken");
 
-const Require_jwt_key = (req, res, next) => {
+const Require_jwt_key = async (req, res, next) => {
   const authHeader = req.headers.authorization; // always lowercase in Express
-
   if (!authHeader) {
     return res.status(401).json({
       message: "Authorization header is missing",
@@ -19,7 +18,7 @@ const Require_jwt_key = (req, res, next) => {
   }
 
   // You may want to verify token later
-  const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
+  const decoded = await jwt.verify(token, process.env.JWT_SECRET_KEY);
 
   if (!decoded) {
     return res.status(401).json({
@@ -27,7 +26,7 @@ const Require_jwt_key = (req, res, next) => {
     });
   }
 
-  req.token = token; // optional: pass token along for controllers
+  req.user = decoded; // optional: pass token along for controllers
 
   next();
 };
